@@ -24,18 +24,18 @@ export class AppComponent implements OnInit {
 
   title = 'Frontend';
   articles: Article[] = [];
-  // test: any;
-
+  test: any;
+  
   constructor(private http: HttpClient) {
   }
-
+  
   fetchArticles() {
-    this.http.get<Article[]>('http://localhost:32771/api/articles').subscribe(
-    // this.http.get<any>('https://jsonplaceholder.typicode.com/todos/1').subscribe(
+    // this.http.get<Article[]>('http://localhost:32781/api/articles').subscribe(
+    this.http.get<any>('https://jsonplaceholder.typicode.com/todos/1').subscribe(
       (resp: any) => {
         console.log(resp);
-        this.articles = resp;
-        // this.test = resp;
+        // this.articles = resp;
+        this.test = resp;
       }
     );
   }
