@@ -1,0 +1,189 @@
+:host {
+    --dark-blue: rgb(0, 0, 128);
+    --hot-red: oklch(61.42% 0.238 15.34);
+    --orange-red: oklch(63.32% 0.24 31.68);
+    --orange: oklch(69.02% 0.277 55.77);
+
+    --vertical-gradient: linear-gradient(180deg,
+        var(--hot-red) 0%,
+        var(--orange-red) 50%,
+        var(--orange) 100%);
+
+    --horizontal-gradient: linear-gradient(90deg,
+        var(--hot-red) 0%,
+        var(--orange-red) 50%,
+        var(--orange) 100%);
+
+    --pill-accent: var(--orange);
+
+    font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+      Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+      "Segoe UI Symbol";
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1 {
+    font-size: 3.125rem;
+    color: var(--hot-red);
+    font-weight: 500;
+    line-height: 100%;
+    letter-spacing: -0.125rem;
+    margin: 0;
+    font-family: "Inter Tight", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+      Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+      "Segoe UI Symbol";
+  }
+
+  p {
+    margin: 0.25rem;
+    margin-right: 0;
+    color: var(--orange-red);
+  }
+
+  main {
+    width: 100%;
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    box-sizing: inherit;
+    position: relative;
+  }
+
+  @media (max-width: 1080px) {
+    main {
+      align-items: flex-start;
+    }
+  }
+
+  .header {
+    display: flex;
+  }
+
+  .vertical-divider {
+    width: 1px;
+    background: var(--vertical-gradient);
+    margin-inline: 0.5rem;
+  }
+
+  .horizontal-divider {
+    height: 1px;
+    width: 100%;
+    background: var(--horizontal-gradient);
+    margin-top: 0.5rem;
+  }
+
+  .pill-group {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .pill {
+    display: flex;
+    align-items: flex-end;
+    --pill-accent: var(--orange);
+    background: color-mix(in srgb, var(--pill-accent) 15%, transparent);
+    color: var(--pill-accent);
+    padding-inline: 0.75rem;
+    padding-block: 0.375rem;
+    border-radius: 2.75rem;
+    border: 0;
+    transition: background 0.3s ease;
+    font-family: var(--inter-font);
+    font-size: 0.875rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 1.4rem;
+    letter-spacing: -0.00875rem;
+    text-decoration: none;
+  }
+
+  .pill:hover {
+    background: color-mix(in srgb, var(--pill-accent) 35%, transparent);
+    cursor: pointer;
+  }
+
+  .pill-group .pill:nth-child(3n + 1) {
+    --pill-accent: var(--hot-red);
+  }
+
+  .pill-group .pill:nth-child(3n + 2) {
+    --pill-accent: var(--orange-red);
+  }
+
+  .pill-group .pill:nth-child(3n + 3) {
+    --pill-accent: var(--orange);
+  }
+
+  .social-links {
+    --link-accent: var(--orange);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 0.73rem;
+    margin-top: 0.15rem;
+    text-decoration: none;
+  }
+
+  .social-links path {
+    fill: var(--link-accent);
+  }
+
+  .social-links a:hover svg path {
+    fill: var(--dark-blue);
+  }
+
+  .social-links a:nth-child(3n + 1) {
+    --link-accent: var(--hot-red);
+  }
+
+  .social-links a:nth-child(3n + 2) {
+    --link-accent: var(--orange-red);
+  }
+
+  .social-links a:nth-child(3n + 3) {
+    --link-accent: var(--orange);
+  }
+
+  .data-table {
+    margin-top: 1.5rem;
+    border-spacing: 5px;
+  }
+
+  .data-table th {
+    border-radius: 10px 10px 10px 10px;
+    color: var(--orange);
+    border: 1px solid var(--hot-red);
+    font-weight: 500;
+    padding: 2px 5px;
+    vertical-align: middle;
+    background: color-mix(in srgb, var(--orange) 15%, transparent);
+  }
+
+  .data-table td {
+    padding: 2px 5px;
+    vertical-align: middle;
+    color: var(--hot-red);
+  }
+
+  .repo-link {
+    text-decoration: none;
+    color: var(--link-accent);
+  }
+
+  .repo-link span {
+    vertical-align: top;
+    margin-left: 0.5rem;
+  }
+
+  .repo-link:hover {
+    color: var(--dark-blue);
+  }

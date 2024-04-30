@@ -1,235 +1,88 @@
-<style>
-  :host {
-    --hot-red: oklch(61.42% 0.238 15.34);
-    --orange-red: oklch(63.32% 0.24 31.68);
-    --orange: oklch(69.02% 0.277 55.77);
-
-    --gray-900: oklch(19.37% 0.006 300.98);
-    --gray-700: oklch(36.98% 0.014 302.71);
-    --gray-400: oklch(70.9% 0.015 304.04);
-
-    --vertical-gradient: linear-gradient(180deg,
-        var(--hot-red) 0%,
-        var(--orange-red) 50%,
-        var(--orange) 100%);
-
-    --horizontal-gradient: linear-gradient(90deg,
-        var(--hot-red) 0%,
-        var(--orange-red) 50%,
-        var(--orange) 100%);
-
-    --pill-accent: var(--orange);
-
-    font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-      Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
-      "Segoe UI Symbol";
-    box-sizing: border-box;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  }
-
-  h1 {
-    font-size: 3.125rem;
-    color: var(--hot-red);
-    font-weight: 500;
-    line-height: 100%;
-    letter-spacing: -0.125rem;
-    margin: 0;
-    font-family: "Inter Tight", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-      Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
-      "Segoe UI Symbol";
-  }
-
-  p {
-    margin: 0;
-    color: var(--orange-red);
-  }
-
-  main {
-    width: 100%;
-    min-height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 1rem;
-    box-sizing: inherit;
-    position: relative;
-  }
-
-  .content {
-    display: flex;
-    justify-content: space-around;
-    width: 100%;
-  }
-
-  .content h1 {
-    margin-top: 1.75rem;
-  }
-
-  .content p {
-    margin-top: 1.5rem;
-  }
-
-  .divider {
-    width: 1px;
-    background: var(--vertical-gradient);
-    margin-inline: 0.5rem;
-  }
-
-  .pill-group {
-    display: flex;
-    flex-direction: column;
-    align-items: start;
-    flex-wrap: wrap;
-    gap: 1.25rem;
-  }
-
-  .pill {
-    display: flex;
-    align-items: flex-end;
-    --pill-accent: var(--orange);
-    background: color-mix(in srgb, var(--pill-accent) 25%, transparent);
-    color: var(--pill-accent);
-    padding-inline: 0.75rem;
-    padding-block: 0.375rem;
-    border-radius: 2.75rem;
-    border: 0;
-    transition: background 0.3s ease;
-    font-family: var(--inter-font);
-    font-size: 0.875rem;
-    font-style: normal;
-    font-weight: 500;
-    line-height: 1.4rem;
-    letter-spacing: -0.00875rem;
-    text-decoration: none;
-  }
-
-  .pill:hover {
-    background: color-mix(in srgb, var(--pill-accent) 15%, transparent);
-  }
-
-  .pill-group .pill:nth-child(3n + 1) {
-    --pill-accent: var(--hot-red);
-  }
-
-  .pill-group .pill:nth-child(3n + 2) {
-    --pill-accent: var(--orange-red);
-  }
-
-  .pill-group .pill:nth-child(3n + 3) {
-    --pill-accent: var(--orange);
-  }
-
-  .social-links {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 0.73rem;
-    margin-top: 1.5rem;
-  }
-
-  .social-links path {
-    transition: fill 0.3s ease;
-    fill: var(--orange);
-  }
-
-  .social-links a:hover svg path {
-    fill: var(--gray-900);
-  }
-
-  @media screen and (max-width: 650px) {
-    .content {
-      flex-direction: column;
-      width: max-content;
-    }
-
-    .divider {
-      height: 1px;
-      width: 100%;
-      background: var(--horizontal-gradient);
-      margin-block: 1.5rem;
-    }
-  }
-
-  .data-table {
-    width: 80vw;
-    border-collapse: collapse;
-    border: 1px solid var(--orange);
-    margin-top: 1.5rem;
-    text-align: left;
-  }
-</style>
-
 <main class="main">
-  <div class="content">
-    <div class="left-side">
+  <div class="header">
+    <div class="left">
       <h1>{{ title }}</h1>
-      <p>of the ChristCodingChallenge</p>
-      <table class="data-table">
-        <thead>
-          <tr>
-            <th>Artikelnummer</th>
-            <th>Marke</th>
-            <th>Material1</th>
-            <th>Material2</th>
-            <th>Material3</th>
-            <th>Legierung1</th>
-            <th>Legierung2</th>
-            <th>Legierung3</th>
-            <th>Kollektion</th>
-            <th>Warengruppe</th>
-            <th>Warenhauptgruppe</th>
-            <th>Geschlecht</th>
-          </tr>
-        </thead>
-        <!-- <tbody>
-          <tr *ngFor="let product of products">
-            <td>{{ product.artikelnummer }}</td>
-            <td>{{ product.marke }}</td>
-            <td>{{ product.material1 }}</td>
-            <td>{{ product.material2 }}</td>
-            <td>{{ product.material3 }}</td>
-            <td>{{ product.legierung1 }}</td>
-            <td>{{ product.legierung2 }}</td>
-            <td>{{ product.legierung3 }}</td>
-            <td>{{ product.kollektion }}</td>
-            <td>{{ product.warengruppe }}</td>
-            <td>{{ product.warenhauptgruppe }}</td>
-            <td>{{ product.geschlecht }}</td>
-          </tr>
-        </tbody> -->
-      </table>
+      <p>for the ChristCodingChallenge</p>
     </div>
-    <div class="divider" role="separator" aria-label="Divider"></div>
-    <div class="right-side">
+    <div class="vertical-divider" role="separator" aria-label="Divider"></div>
+    <div class="middle">
       <div class="pill-group">
         @for (item of [
         { title: 'Refresh Data', action: 'https://angular.dev/tools/devtools' },
         { title: 'Download CSV', action: 'https://angular.dev/tools/devtools' },
-        { title: 'Do anything', action: 'https://angular.dev/tools/devtools' },
-        { title: 'Do something else', action: 'https://angular.dev/tools/devtools' },
         ]; track item.title) {
         <button class="pill" (click)="item.action">
           <span>{{ item.title }}</span>
         </button>
         }
       </div>
+    </div>
+    <div class="vertical-divider" role="separator" aria-label="Divider"></div>
+    <div class="right">
       <div class="social-links">
-        <a href="https://github.com/patrick-hildebrandt/ChristCodingChallengeFrontend" aria-label="Github" target="_blank" rel="noopener">
-          <svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg" alt="Github">
-            <path
-            d="M12.3047 0C5.50634 0 0 5.50942 0 12.3047C0 17.7423 3.52529 22.3535 8.41332 23.9787C9.02856 24.0946 9.25414 23.7142 9.25414 23.3871C9.25414 23.0949 9.24389 22.3207 9.23876 21.2953C5.81601 22.0377 5.09414 19.6444 5.09414 19.6444C4.53427 18.2243 3.72524 17.8449 3.72524 17.8449C2.61064 17.082 3.81137 17.0973 3.81137 17.0973C5.04697 17.1835 5.69604 18.3647 5.69604 18.3647C6.79321 20.2463 8.57636 19.7029 9.27978 19.3881C9.39052 18.5924 9.70736 18.0499 10.0591 17.7423C7.32641 17.4347 4.45429 16.3765 4.45429 11.6618C4.45429 10.3185 4.9311 9.22133 5.72065 8.36C5.58222 8.04931 5.16694 6.79833 5.82831 5.10337C5.82831 5.10337 6.85883 4.77319 9.2121 6.36459C10.1965 6.09082 11.2424 5.95546 12.2883 5.94931C13.3342 5.95546 14.3801 6.09082 15.3644 6.36459C17.7023 4.77319 18.7328 5.10337 18.7328 5.10337C19.3942 6.79833 18.9789 8.04931 18.8559 8.36C19.6403 9.22133 20.1171 10.3185 20.1171 11.6618C20.1171 16.3888 17.2409 17.4296 14.5031 17.7321C14.9338 18.1012 15.3337 18.8559 15.3337 20.0084C15.3337 21.6552 15.3183 22.978 15.3183 23.3779C15.3183 23.7009 15.5336 24.0854 16.1642 23.9623C21.0871 22.3484 24.6094 17.7341 24.6094 12.3047C24.6094 5.50942 19.0999 0 12.3047 0Z" />
-          </svg>
-        </a>
-        <a href="https://github.com/patrick-hildebrandt/ChristCodingChallengeBackend" aria-label="Github" target="_blank" rel="noopener">
+        <a class="repo-link" href="https://github.com/patrick-hildebrandt/ChristCodingChallengeFrontend"
+          aria-label="Github" target="_blank" rel="noopener">
           <svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg" alt="Github">
             <path
               d="M12.3047 0C5.50634 0 0 5.50942 0 12.3047C0 17.7423 3.52529 22.3535 8.41332 23.9787C9.02856 24.0946 9.25414 23.7142 9.25414 23.3871C9.25414 23.0949 9.24389 22.3207 9.23876 21.2953C5.81601 22.0377 5.09414 19.6444 5.09414 19.6444C4.53427 18.2243 3.72524 17.8449 3.72524 17.8449C2.61064 17.082 3.81137 17.0973 3.81137 17.0973C5.04697 17.1835 5.69604 18.3647 5.69604 18.3647C6.79321 20.2463 8.57636 19.7029 9.27978 19.3881C9.39052 18.5924 9.70736 18.0499 10.0591 17.7423C7.32641 17.4347 4.45429 16.3765 4.45429 11.6618C4.45429 10.3185 4.9311 9.22133 5.72065 8.36C5.58222 8.04931 5.16694 6.79833 5.82831 5.10337C5.82831 5.10337 6.85883 4.77319 9.2121 6.36459C10.1965 6.09082 11.2424 5.95546 12.2883 5.94931C13.3342 5.95546 14.3801 6.09082 15.3644 6.36459C17.7023 4.77319 18.7328 5.10337 18.7328 5.10337C19.3942 6.79833 18.9789 8.04931 18.8559 8.36C19.6403 9.22133 20.1171 10.3185 20.1171 11.6618C20.1171 16.3888 17.2409 17.4296 14.5031 17.7321C14.9338 18.1012 15.3337 18.8559 15.3337 20.0084C15.3337 21.6552 15.3183 22.978 15.3183 23.3779C15.3183 23.7009 15.5336 24.0854 16.1642 23.9623C21.0871 22.3484 24.6094 17.7341 24.6094 12.3047C24.6094 5.50942 19.0999 0 12.3047 0Z" />
           </svg>
+          <span>Frontend</span>
+        </a>
+        <a class="repo-link" href="https://github.com/patrick-hildebrandt/ChristCodingChallengeBackend"
+          aria-label="Github" target="_blank" rel="noopener">
+          <svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg" alt="Github">
+            <path
+              d="M12.3047 0C5.50634 0 0 5.50942 0 12.3047C0 17.7423 3.52529 22.3535 8.41332 23.9787C9.02856 24.0946 9.25414 23.7142 9.25414 23.3871C9.25414 23.0949 9.24389 22.3207 9.23876 21.2953C5.81601 22.0377 5.09414 19.6444 5.09414 19.6444C4.53427 18.2243 3.72524 17.8449 3.72524 17.8449C2.61064 17.082 3.81137 17.0973 3.81137 17.0973C5.04697 17.1835 5.69604 18.3647 5.69604 18.3647C6.79321 20.2463 8.57636 19.7029 9.27978 19.3881C9.39052 18.5924 9.70736 18.0499 10.0591 17.7423C7.32641 17.4347 4.45429 16.3765 4.45429 11.6618C4.45429 10.3185 4.9311 9.22133 5.72065 8.36C5.58222 8.04931 5.16694 6.79833 5.82831 5.10337C5.82831 5.10337 6.85883 4.77319 9.2121 6.36459C10.1965 6.09082 11.2424 5.95546 12.2883 5.94931C13.3342 5.95546 14.3801 6.09082 15.3644 6.36459C17.7023 4.77319 18.7328 5.10337 18.7328 5.10337C19.3942 6.79833 18.9789 8.04931 18.8559 8.36C19.6403 9.22133 20.1171 10.3185 20.1171 11.6618C20.1171 16.3888 17.2409 17.4296 14.5031 17.7321C14.9338 18.1012 15.3337 18.8559 15.3337 20.0084C15.3337 21.6552 15.3183 22.978 15.3183 23.3779C15.3183 23.7009 15.5336 24.0854 16.1642 23.9623C21.0871 22.3484 24.6094 17.7341 24.6094 12.3047C24.6094 5.50942 19.0999 0 12.3047 0Z" />
+          </svg>
+          <span>Backend</span>
         </a>
       </div>
     </div>
   </div>
+  <div class="data">
+    <div class="horizontal-divider" role="separator" aria-label="Divider"></div>
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>Artikelnummer</th>
+          <th>Marke</th>
+          <th>Material1</th>
+          <th>Legierung1</th>
+          <th>Kollektion</th>
+          <th>Warengruppe</th>
+          <th>Warenhauptgruppe</th>
+          <th>Geschlecht</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>artikelnummer</td>
+          <td>marke</td>
+          <td>material1</td>
+          <td>legierung1</td>
+          <td>kollektion</td>
+          <td>warengruppe</td>
+          <td>warenhauptgruppe</td>
+          <td>geschlecht</td>
+        </tr>
+        <tr *ngFor="let article of articles">
+          <td>{{ articles.artikelnummer }}</td>
+          <td>{{ articles.marke }}</td>
+          <td>{{ articles.material1 }}</td>
+          <td>{{ articles.legierung1 }}</td>
+          <td>{{ articles.kollektion }}</td>
+          <td>{{ articles.warengruppe }}</td>
+          <td>{{ articles.warenhauptgruppe }}</td>
+          <td>{{ articles.geschlecht }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <!-- testing -->
+  <!-- <div>{{test.userId}}</div>
+  <div>{{test.id}}</div>
+  <div>{{test.title}}</div>
+  <div>{{test.completed}}</div> -->
 </main>
 
 <router-outlet />
