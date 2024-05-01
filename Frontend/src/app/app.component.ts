@@ -4,7 +4,7 @@
 // npm install -g @angular/cli
 // ng new "Ordnername"
 // cd "Ordnername"
-// ng serve --open
+// ng serve -o
 // browser: http://localhost:4200/
 
 import { HttpClient, HttpClientModule } from '@angular/common/http';
@@ -34,6 +34,7 @@ interface Article {
   styleUrl: './app.component.css'
 })
 export class AppComponent implements OnInit {
+  apiURL = 'http://localhost:32771/api/articles';
   title = 'Frontend';
   fileName = 'articles.csv';
   articles: Article[] = [];
@@ -43,7 +44,7 @@ export class AppComponent implements OnInit {
   }
 
   fetchArticles() {
-    this.http.get<Article[]>('http://localhost:32803/api/articles').subscribe(
+    this.http.get<Article[]>(this.apiURL).subscribe(
       // this.http.get<any>('https://jsonplaceholder.typicode.com/todos/1').subscribe(
       (resp: any) => {
         console.log(resp);
