@@ -1,3 +1,12 @@
+// PowerShell:
+// node -v
+// npm -v
+// npm install -g @angular/cli
+// ng new "Ordnername"
+// cd "Ordnername"
+// ng serve --open
+// browser: http://localhost:4200/
+
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
