@@ -7,14 +7,12 @@
     <div class="vertical-divider" role="separator" aria-label="Divider"></div>
     <div class="middle">
       <div class="pill-group">
-        @for (item of [
-        { title: 'Refresh Data', action: 'https://angular.dev/tools/devtools' },
-        { title: 'Download CSV', action: 'https://angular.dev/tools/devtools' },
-        ]; track item.title) {
-        <button class="pill" (click)="item.action">
-          <span>{{ item.title }}</span>
+        <button class="pill" (click)="fetchArticles()">
+          <span>Refresh Data</span>
         </button>
-        }
+        <button class="pill" (click)="downloadCsv()">
+          <span>Download CSV</span>
+        </button>
       </div>
     </div>
     <div class="vertical-divider" role="separator" aria-label="Divider"></div>
@@ -55,34 +53,24 @@
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td>artikelnummer</td>
-          <td>marke</td>
-          <td>material1</td>
-          <td>legierung1</td>
-          <td>kollektion</td>
-          <td>warengruppe</td>
-          <td>warenhauptgruppe</td>
-          <td>geschlecht</td>
+        <tr *ngFor="let article of articles">
+          <td>{{ article.artikelnummer }}</td>
+          <td>{{ article.marke }}</td>
+          <td>{{ article.material1 }}</td>
+          <td>{{ article.legierung1 }}</td>
+          <td>{{ article.kollektion }}</td>
+          <td>{{ article.warengruppe }}</td>
+          <td>{{ article.warenhauptgruppe }}</td>
+          <td>{{ article.geschlecht }}</td>
         </tr>
-        <!-- <tr *ngFor="let article of articles">
-          <td>{{ articles.artikelnummer }}</td>
-          <td>{{ articles.marke }}</td>
-          <td>{{ articles.material1 }}</td>
-          <td>{{ articles.legierung1 }}</td>
-          <td>{{ articles.kollektion }}</td>
-          <td>{{ articles.warengruppe }}</td>
-          <td>{{ articles.warenhauptgruppe }}</td>
-          <td>{{ articles.geschlecht }}</td>
-        </tr> -->
       </tbody>
     </table>
   </div>
-  <!-- testing -->
-  <div>{{test.userId}}</div>
+  <!-- test -->
+  <!-- <div>{{test.userId}}</div>
   <div>{{test.id}}</div>
   <div>{{test.title}}</div>
-  <div>{{test.completed}}</div>
+  <div>{{test.completed}}</div> -->
 </main>
 
 <router-outlet />
